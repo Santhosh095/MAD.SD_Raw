@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SD_Raw</string>
-    <string name="Welcome_text">Android Studio\nSimple Login Page</string>
+    <string name="Welcome_text">Android Studio\nSimple Store and Load</string>
     <string name="credits">Designed By Santhosh S 200701221 REC\nMobile Application Development Laboratory</string>
     <string name="get_started">Get Started</string>
     <string name="student_name">Enter Student Name</string>
