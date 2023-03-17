@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SD_Raw</string>
+    <string name="student_name">Enter Student Name</string>
+    <string name="enter_cgpa">Enter CGPA</string>
+    <string name="save">SAVE</string>
+    <string name="hello_user">Hello User!</string>
+    <string name="hello_again2">Simple Application to\nsave and load data</string>
+    <string name="load">LOAD</string>
+    <string name="credit">By Santhosh S 200701221</string>
+</resources>
