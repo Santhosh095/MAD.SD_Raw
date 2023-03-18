@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileInputStream
@@ -22,23 +23,33 @@ class FrontPage : AppCompatActivity() {
         save.setOnClickListener {
             val n1=name.text.toString()
             val grade=cgpa.text.toString()
-            val file= File(getExternalFilesDir(null),"student.txt")
-            val fos= FileOutputStream(file,false)
-            fos.write("$n1,$grade".toByteArray())
-            fos.close()
-            name.setText("")
-            cgpa.setText("")
+            if(grade.toFloat()>10.0){
+                Toast.makeText(this, "CGPA must be  <= 10.0", Toast.LENGTH_LONG).show()
+            }
+            else{
+                val file= File(getExternalFilesDir(null),"student.txt")
+                val fos= FileOutputStream(file,false)
+                fos.write("$n1,$grade".toByteArray())
+                fos.close()
+                name.setText("")
+                cgpa.setText("")
+            }
         }
         load.setOnClickListener {
             val file= File(getExternalFilesDir(null),"student.txt")
-            val fis= FileInputStream(file)
-            val isr= InputStreamReader(fis)
-            val br= BufferedReader(isr)
-            val line:String = br.readLine()
-            val part=line.split(",")
-            name.setText(part[0])
-            cgpa.setText(part[1])
-            fis.close()
+            if (file.length() == 0L) {
+                Toast.makeText(this, "Error: File is empty", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val fis= FileInputStream(file)
+                val isr= InputStreamReader(fis)
+                val br= BufferedReader(isr)
+                val line:String = br.readLine()
+                val part=line.split(",")
+                name.setText(part[0])
+                cgpa.setText(part[1])
+                fis.close()
+            }
         }
     }
 }
